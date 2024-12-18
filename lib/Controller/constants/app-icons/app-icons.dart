@@ -1,3 +1,3 @@
 class AppIcons{
-  static String backArrowIcon='assets/app-icons/backarrow.png';
+  static String backArrowIcon='assets/appicons/backarrow.png';
 }

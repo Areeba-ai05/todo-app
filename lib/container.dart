@@ -1,4 +1,5 @@
 import 'package:architecture/Controller/constants/app-colors/app-colors.dart';
+import 'package:architecture/Controller/constants/app-icons/app-icons.dart';
 import 'package:flutter/material.dart';
 
 class ContainerClass extends StatelessWidget {
@@ -47,7 +48,12 @@ class ContainerClass extends StatelessWidget {
               )
           ),
         ),
-        ImageIcon(AssetImage(''))
+        Padding(
+          padding: const EdgeInsets.only(left: 18.0, top: 8.0),
+          child: ImageIcon(AssetImage(AppIcons.backArrowIcon),
+          size:50,
+          ),
+        )
 
       ]
       ),
