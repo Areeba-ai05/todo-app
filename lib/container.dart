@@ -1,8 +1,6 @@
 import 'package:architecture/Controller/constants/app-colors/app-colors.dart';
 import 'package:architecture/Controller/constants/app-icons/app-icons.dart';
-import 'package:architecture/Controller/constants/app-images/app-images.dart';
-import 'package:architecture/Controller/widgets/blacktext-heading-widget.dart';
-import 'package:architecture/Controller/widgets/image-widget.dart';
+
 import 'package:flutter/material.dart';
 
 class ContainerClass extends StatelessWidget {
@@ -16,14 +14,10 @@ class ContainerClass extends StatelessWidget {
         Column(
           children: [
             Container(
-              height: 400,
-              width: double.infinity,
-              color: AppColors.primaryColor,
-              child: CircleAvatar(
-                child: ImageWidget(image: AppImages.homeImg),
-              ),
-             
-            ),
+                  height: 400,
+                  width: double.infinity,
+                  color: AppColors.primaryColor,
+                ),
           ],
         ),
       Container(
@@ -36,10 +30,8 @@ class ContainerClass extends StatelessWidget {
             bottomLeft: Radius.circular(200),
             bottomRight:Radius.circular(200),
             //topLeft: Radius.circular(10),
-
           )
         ),
-
       ),
         Container(
           height:200,
