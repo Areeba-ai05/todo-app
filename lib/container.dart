@@ -1,6 +1,7 @@
 import 'package:architecture/Controller/constants/app-colors/app-colors.dart';
 import 'package:architecture/Controller/constants/app-icons/app-icons.dart';
 import 'package:architecture/Controller/constants/app-images/app-images.dart';
+import 'package:architecture/Controller/widgets/blacktext-heading-widget.dart';
 import 'package:architecture/Controller/widgets/image-widget.dart';
 
 import 'package:flutter/material.dart';
@@ -16,22 +17,26 @@ class ContainerClass extends StatelessWidget {
         Column(
           children: [
             Container(
-                  height: 400,
+                  height: 300,
                   width: double.infinity,
                   color: AppColors.primaryColor,
               child: Column(
                 children: [
-                  Container(
-                    height: 119,
-                    width: 121,
-                    child: CircleAvatar(
-                     child: ImageWidget(image: AppImages.homeImg),
+                  Padding(
+                    padding: const EdgeInsets.only(top:100.0),
+                    child: Container(
+                      height: 119,
+                      width: 121,
+                      child: CircleAvatar(
+                       child: ImageWidget(image: AppImages.homeImg),
+                      ),
                     ),
-                  )
+                  ),
+                  SizedBox(height:30),
+                  BlackTextHeading(text: 'Welcome Mr.Khan'),
                 ],
               ),
                 ),
-
           ],
         ),
       Container(
@@ -71,7 +76,7 @@ class ContainerClass extends StatelessWidget {
             size:50,
             ),
           ),
-        )
+        ),
 
       ]
       ),
