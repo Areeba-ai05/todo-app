@@ -77,9 +77,9 @@ class ContainerClass extends StatelessWidget {
             ),
           ),
         ),
-
-      ]
+      ],
       ),
+
     );
   }
 }
