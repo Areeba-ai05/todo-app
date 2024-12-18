@@ -1,5 +1,7 @@
 import 'package:architecture/Controller/constants/app-colors/app-colors.dart';
 import 'package:architecture/Controller/constants/app-icons/app-icons.dart';
+import 'package:architecture/Controller/constants/app-images/app-images.dart';
+import 'package:architecture/Controller/widgets/image-widget.dart';
 
 import 'package:flutter/material.dart';
 
@@ -17,7 +19,19 @@ class ContainerClass extends StatelessWidget {
                   height: 400,
                   width: double.infinity,
                   color: AppColors.primaryColor,
+              child: Column(
+                children: [
+                  Container(
+                    height: 119,
+                    width: 121,
+                    child: CircleAvatar(
+                     child: ImageWidget(image: AppImages.homeImg),
+                    ),
+                  )
+                ],
+              ),
                 ),
+
           ],
         ),
       Container(
