@@ -34,8 +34,8 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home:
-      //ContainerClass()
-      SplashScreen()//const MyHomePage(title: 'Flutter Demo Home Page'),
+      ContainerClass()
+      //SplashScreen()//const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
