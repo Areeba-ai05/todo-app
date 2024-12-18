@@ -1,5 +1,8 @@
 import 'package:architecture/Controller/constants/app-colors/app-colors.dart';
 import 'package:architecture/Controller/constants/app-icons/app-icons.dart';
+import 'package:architecture/Controller/constants/app-images/app-images.dart';
+import 'package:architecture/Controller/widgets/blacktext-heading-widget.dart';
+import 'package:architecture/Controller/widgets/image-widget.dart';
 import 'package:flutter/material.dart';
 
 class ContainerClass extends StatelessWidget {
@@ -16,7 +19,11 @@ class ContainerClass extends StatelessWidget {
               height: 400,
               width: double.infinity,
               color: AppColors.primaryColor,
-            )
+              child: CircleAvatar(
+                child: ImageWidget(image: AppImages.homeImg),
+              ),
+             
+            ),
           ],
         ),
       Container(
@@ -50,8 +57,13 @@ class ContainerClass extends StatelessWidget {
         ),
         Padding(
           padding: const EdgeInsets.only(left: 18.0, top: 8.0),
-          child: ImageIcon(AssetImage(AppIcons.backArrowIcon),
-          size:50,
+          child: InkWell(
+            onTap: (){
+              Navigator.pop(context);
+            },
+            child: ImageIcon(AssetImage(AppIcons.backArrowIcon),
+            size:50,
+            ),
           ),
         )
 
