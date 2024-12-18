@@ -22,7 +22,7 @@ class ContainerClass extends StatelessWidget {
         height:100,
         width: 200,
         decoration: BoxDecoration(
-          color:Colors.blue.withOpacity(0.5),
+          color:Colors.teal.withOpacity(0.5),
           borderRadius: BorderRadius.only(
             //topRight: Radius.circular(200),
             bottomLeft: Radius.circular(200),
@@ -34,13 +34,13 @@ class ContainerClass extends StatelessWidget {
 
       ),
         Container(
-          height:100,
-          width: 200,
+          height:200,
+          width: 100,
           decoration: BoxDecoration(
-              color:Colors.blue.withOpacity(0.5),
+              color:Colors.teal.withOpacity(0.5),
               borderRadius: BorderRadius.only(
-                //topRight: Radius.circular(200),
-                bottomLeft: Radius.circular(200),
+                topRight: Radius.circular(200),
+                //bottomLeft: Radius.circular(200),
                 bottomRight:Radius.circular(200),
                 //topLeft: Radius.circular(10),
 
