@@ -8,15 +8,12 @@ class TodoTaskWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 8.0),
-      child: Text(text,style: GoogleFonts.poppins(
-        color: AppColors.blackColor,
-        fontSize: 20,
-        fontWeight: FontWeight.w500,
-      ),
+    return Text(text,style: GoogleFonts.poppins(
+      color: AppColors.greyColor,
+      fontSize: 18,
+      fontWeight: FontWeight.w400,
+    ),
 
-      ),
     );
   }
 }

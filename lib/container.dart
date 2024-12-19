@@ -16,7 +16,8 @@ class ContainerClass extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body:
-      Stack(children: [
+          SingleChildScrollView(
+     child:Stack(children: [
         Column(
           children: [
             Container(
@@ -45,7 +46,35 @@ class ContainerClass extends StatelessWidget {
                 SizedBox(height: 30,),
                 ImageWidget(image: AppImages.homeScreenImg),
                 SizedBox(height: 30,),
-             TodoTaskWidget(text:'Todo Tasks.')
+             Row(
+               mainAxisAlignment:MainAxisAlignment.start,
+               children: [
+               BlackTextHeading(text:'Todo Tasks.'),
+               ],
+             ),
+                SizedBox(height: 20,),
+                Container(
+                  height: 240,
+                  width: 339,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(30),
+                    color: AppColors.whiteColor,
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(top: 8.0, left: 18),
+                        child: Row(
+                          children: [
+                            TodoTaskWidget(text: 'Daily Tasks'),
+
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                )
               ],),
             )
           ],
@@ -91,6 +120,6 @@ class ContainerClass extends StatelessWidget {
       ],
       ),
 
-    );
+    ),);
   }
 }
