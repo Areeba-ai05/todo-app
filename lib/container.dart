@@ -3,6 +3,8 @@ import 'package:architecture/Controller/constants/app-icons/app-icons.dart';
 import 'package:architecture/Controller/constants/app-images/app-images.dart';
 import 'package:architecture/Controller/widgets/blacktext-heading-widget.dart';
 import 'package:architecture/Controller/widgets/image-widget.dart';
+import 'package:architecture/Controller/widgets/normal-text-widget.dart';
+import 'package:architecture/Controller/widgets/text-form-field.dart';
 
 import 'package:flutter/material.dart';
 
@@ -41,6 +43,8 @@ class ContainerClass extends StatelessWidget {
               child: Column(children: [
                 SizedBox(height: 30,),
                 ImageWidget(image: AppImages.homeScreenImg),
+                SizedBox(height: 30,),
+             BlackTextHeading(text: 'Todo Tasks'),
               ],),
             )
           ],
