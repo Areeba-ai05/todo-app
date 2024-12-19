@@ -3,8 +3,8 @@ import 'package:architecture/Controller/constants/app-icons/app-icons.dart';
 import 'package:architecture/Controller/constants/app-images/app-images.dart';
 import 'package:architecture/Controller/widgets/blacktext-heading-widget.dart';
 import 'package:architecture/Controller/widgets/image-widget.dart';
-import 'package:architecture/Controller/widgets/normal-text-widget.dart';
-import 'package:architecture/Controller/widgets/text-form-field.dart';
+//import 'package:architecture/Controller/widgets/normal-text-widget.dart';
+//import 'package:architecture/Controller/widgets/text-form-field.dart';
 import 'package:architecture/Controller/widgets/todo-task%20widget.dart';
 
 import 'package:flutter/material.dart';
@@ -75,22 +75,35 @@ class ContainerClass extends StatelessWidget {
                             child: ImageIcon(AssetImage(AppIcons.addIcon),
                             size: 50,),
                           ),
-                            SizedBox(height: 20,),
-                            Row(
-                              children: [
-                                Container(
-                                  height:17,
-                                  width: 17,
-                                  child: ImageIcon(AssetImage(AppIcons.rectangleIcon),
-                                    size: 50,),
-                                ),
-                                BlackTextHeading(text: 'Follow Oluwafisayomi.dev on Twitter.')
-                              ],
-                            )
-
                           ],
                         ),
                       ),
+                      SizedBox(height: 20,),
+                       Row(
+                          children: [
+                            Container(
+                              height:17,
+                              width: 17,
+                              child: ImageIcon(AssetImage(AppIcons.recIcon),
+                                size: 50,),
+                            ),
+                            BlackTextHeading(text: 'Follow islamic on Twitter.')
+                          ],
+                        ),
+
+                      SizedBox(height: 20,),
+                      Row(
+                        children: [
+                          Container(
+                            height:17,
+                            width: 17,
+                            child: ImageIcon(AssetImage(AppIcons.rectangleIcon),
+                              size: 50,),
+                          ),
+                          BlackTextHeading(text: 'Learn Figma by 4pm.')
+                        ],
+                      ),
+
                     ],
                   ),
                 )
