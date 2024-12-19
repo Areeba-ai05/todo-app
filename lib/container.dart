@@ -66,6 +66,7 @@ class ContainerClass extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.only(top: 8.0, left: 18),
                         child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             TodoTaskWidget(text: 'Daily Tasks'),
                           Container(
@@ -73,7 +74,19 @@ class ContainerClass extends StatelessWidget {
                             width: 31,
                             child: ImageIcon(AssetImage(AppIcons.addIcon),
                             size: 50,),
-                          )
+                          ),
+                            SizedBox(height: 20,),
+                            Row(
+                              children: [
+                                Container(
+                                  height:17,
+                                  width: 17,
+                                  child: ImageIcon(AssetImage(AppIcons.rectangleIcon),
+                                    size: 50,),
+                                ),
+                                BlackTextHeading(text: 'Follow Oluwafisayomi.dev on Twitter.')
+                              ],
+                            )
 
                           ],
                         ),
