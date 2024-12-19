@@ -37,6 +37,12 @@ class ContainerClass extends StatelessWidget {
                 ],
               ),
                 ),
+            Container(
+              child: Column(children: [
+                SizedBox(height: 30,),
+                ImageWidget(image: AppImages.homeScreenImg),
+              ],),
+            )
           ],
         ),
       Container(
