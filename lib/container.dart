@@ -5,6 +5,7 @@ import 'package:architecture/Controller/widgets/blacktext-heading-widget.dart';
 import 'package:architecture/Controller/widgets/image-widget.dart';
 import 'package:architecture/Controller/widgets/normal-text-widget.dart';
 import 'package:architecture/Controller/widgets/text-form-field.dart';
+import 'package:architecture/Controller/widgets/todo-task%20widget.dart';
 
 import 'package:flutter/material.dart';
 
@@ -44,7 +45,7 @@ class ContainerClass extends StatelessWidget {
                 SizedBox(height: 30,),
                 ImageWidget(image: AppImages.homeScreenImg),
                 SizedBox(height: 30,),
-             BlackTextHeading(text: 'Todo Tasks'),
+             TodoTaskWidget(text:'Todo Tasks.')
               ],),
             )
           ],
