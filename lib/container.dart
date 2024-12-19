@@ -68,6 +68,12 @@ class ContainerClass extends StatelessWidget {
                         child: Row(
                           children: [
                             TodoTaskWidget(text: 'Daily Tasks'),
+                          Container(
+                            height: 34,
+                            width: 31,
+                            child: ImageIcon(AssetImage(AppIcons.addIcon),
+                            size: 50,),
+                          )
 
                           ],
                         ),
