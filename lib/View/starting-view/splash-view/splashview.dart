@@ -33,6 +33,7 @@ class _SplashScreenState extends State<SplashScreen> {
             SizedBox(height: 10,),
            BlackTextHeading(text:'Get things done with TODo'),
             SizedBox(height: 30,),
+            
             ButtonWidget(text:'Get started', ontap: (){
               Navigator.push(context, MaterialPageRoute(builder: (context)=>SignupView()));
 

@@ -43,7 +43,7 @@ TextEditingController fullNameController=TextEditingController();
         isLoading?AppLoader(): ButtonWidget(text: 'Sign Up', ontap: ()async{
           isLoading =true;
           setState(() {
-            
+
           });
           await FirebaseAuth.instance.createUserWithEmailAndPassword(email: emailAddressController.text.trim(), password:createpasswordController.text);
         }),
