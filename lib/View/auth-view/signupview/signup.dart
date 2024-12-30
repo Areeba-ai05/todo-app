@@ -6,6 +6,7 @@ import 'package:architecture/Controller/widgets/image-widget.dart';
 import 'package:architecture/Controller/widgets/normal-text-widget.dart';
 import 'package:architecture/Controller/widgets/text-form-field.dart';
 import 'package:architecture/View/auth-view/signinview/signin-view.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class SignupView extends StatelessWidget {
@@ -28,7 +29,9 @@ TextEditingController fullNameController=TextEditingController();
         TextFormFieldWidget(hintText: 'Create a password', controller: createpasswordController),
         TextFormFieldWidget(hintText: ' Confirm password', controller: confirmpasswordController),
         SizedBox(height: 10,),
-        ButtonWidget(text: 'Sign Up', ontap: (){}),
+        ButtonWidget(text: 'Sign Up', ontap: ()async{
+          await FirebaseAuth.instance.createUserWithEmailAndPassword(email: emailAddressController.text.trim(), password:createpasswordController.text);
+        }),
         SizedBox(height: 10,),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
