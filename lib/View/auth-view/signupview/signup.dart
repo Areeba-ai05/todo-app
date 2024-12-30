@@ -9,12 +9,23 @@ import 'package:architecture/View/auth-view/signinview/signin-view.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-class SignupView extends StatelessWidget {
+class SignupView extends StatefulWidget {
    SignupView({super.key});
+
+  @override
+  State<SignupView> createState() => _SignupViewState();
+}
+
+class _SignupViewState extends State<SignupView> {
 TextEditingController fullNameController=TextEditingController();
+
    TextEditingController emailAddressController=TextEditingController();
+
    TextEditingController createpasswordController=TextEditingController();
+
    TextEditingController confirmpasswordController=TextEditingController();
+
+     bool isLoading=false;
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +40,11 @@ TextEditingController fullNameController=TextEditingController();
         TextFormFieldWidget(hintText: 'Create a password', controller: createpasswordController),
         TextFormFieldWidget(hintText: ' Confirm password', controller: confirmpasswordController),
         SizedBox(height: 10,),
-        ButtonWidget(text: 'Sign Up', ontap: ()async{
+        isLoading?AppLoader(): ButtonWidget(text: 'Sign Up', ontap: ()async{
+          isLoading =true;
+          setState(() {
+            
+          });
           await FirebaseAuth.instance.createUserWithEmailAndPassword(email: emailAddressController.text.trim(), password:createpasswordController.text);
         }),
         SizedBox(height: 10,),
