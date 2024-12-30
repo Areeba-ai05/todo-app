@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "120282023865",
+    "project_id": "whatsappclone-1ef86",
+    "storage_bucket": "whatsappclone-1ef86.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:120282023865:android:fc9094f4931e592413d868",
+        "android_client_info": {
+          "package_name": "com.example.architecture"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8oc-ftYQBezQHnnAl_ET2bAEA3ZAtUT4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:120282023865:android:d9b4c4f3befa40e213d868",
+        "android_client_info": {
+          "package_name": "com.example.waclone"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8oc-ftYQBezQHnnAl_ET2bAEA3ZAtUT4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:120282023865:android:f079e0f0a34b673013d868",
+        "android_client_info": {
+          "package_name": "com.example.whatsappclone"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8oc-ftYQBezQHnnAl_ET2bAEA3ZAtUT4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
