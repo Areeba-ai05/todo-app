@@ -11,6 +11,7 @@ import 'package:architecture/container.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 class SignInView extends StatefulWidget {
 
   SignInView({super.key});
@@ -56,7 +57,8 @@ class _SignInViewState extends State<SignInView> {
                 SizedBox(width: 5,),
                 InkWell(
                     onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>SignupView()));
+                      Get.to(()=>SignupView());
+                      //Navigator.push(context, MaterialPageRoute(builder: (context)=>SignupView()));
                     },
                     child: NormalTextWidget(text: 'Sign Up', textColor:AppColors.primaryColor)),
               ],
