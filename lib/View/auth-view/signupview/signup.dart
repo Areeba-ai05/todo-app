@@ -51,9 +51,13 @@ TextEditingController fullNameController=TextEditingController();
               password:createpasswordController.text).then((value){
                 isLoading=false;
                 setState(() {
-                  Navigator.push(context,CupertinoPageRoute(builder: (context)=>SignInView()) );
                 });
+                Navigator.push(context,CupertinoPageRoute(builder: (context)=>SignInView()) );
+          }).onError((value,error){
+            isLoading=false;
+            setState(() {});
           });
+
         }),
         SizedBox(height: 10,),
         Row(
