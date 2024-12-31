@@ -8,6 +8,7 @@ import 'package:architecture/Controller/widgets/normal-text-widget.dart';
 import 'package:architecture/Controller/widgets/text-form-field.dart';
 import 'package:architecture/View/auth-view/signinview/signin-view.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class SignupView extends StatefulWidget {
@@ -46,7 +47,13 @@ TextEditingController fullNameController=TextEditingController();
           setState(() {
 
           });
-          await FirebaseAuth.instance.createUserWithEmailAndPassword(email: emailAddressController.text.trim(), password:createpasswordController.text);
+          await FirebaseAuth.instance.createUserWithEmailAndPassword(email: emailAddressController.text.trim(),
+              password:createpasswordController.text).then((value){
+                isLoading=false;
+                setState(() {
+                  Navigator.push(context,CupertinoPageRoute(builder: (context)=>SignInView()) );
+                });
+          });
         }),
         SizedBox(height: 10,),
         Row(
