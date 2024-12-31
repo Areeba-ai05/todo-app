@@ -46,7 +46,8 @@ class _SignInViewState extends State<SignInView> {
 
               });
               await FirebaseAuth.instance.signInWithEmailAndPassword(email: emailAddressController.text.trim(),
-                  password: confirmpasswordController.text).then((onValue){Navigator.push(context, CupertinoPageRoute(builder: (context)=>ContainerClass()));
+                  password: confirmpasswordController.text).then((onValue){
+                    Navigator.pushReplacement(context, CupertinoPageRoute(builder: (context)=>ContainerClass()));
               }).onError((handleError,value){});
             }),
             SizedBox(height: 10,),
