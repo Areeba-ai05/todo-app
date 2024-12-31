@@ -7,6 +7,9 @@ import 'package:architecture/Controller/widgets/image-widget.dart';
 import 'package:architecture/Controller/widgets/normal-text-widget.dart';
 import 'package:architecture/Controller/widgets/text-form-field.dart';
 import 'package:architecture/View/auth-view/signupview/signup.dart';
+import 'package:architecture/container.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 class SignInView extends StatefulWidget {
 
@@ -36,7 +39,15 @@ class _SignInViewState extends State<SignInView> {
             SizedBox(height: 20,),
             NormalTextWidget(text: 'Forgot password?', textColor: AppColors.primaryColor),
             SizedBox(height: 20,),
-            isLoading?AppLoader(): ButtonWidget(text: 'Sign In', ontap: ()async{}),
+            isLoading?AppLoader(): ButtonWidget(text: 'Sign In', ontap: ()async{
+              isLoading=true;
+              setState(() {
+
+              });
+              await FirebaseAuth.instance.signInWithEmailAndPassword(email: emailAddressController.text.trim(),
+                  password: confirmpasswordController.text).then((onValue){Navigator.push(context, CupertinoPageRoute(builder: (context)=>ContainerClass()));
+              }).onError((handleError,value){});
+            }),
             SizedBox(height: 10,),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
