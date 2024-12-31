@@ -10,6 +10,7 @@ import 'package:architecture/View/auth-view/signinview/signin-view.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class SignupView extends StatefulWidget {
    SignupView({super.key});
@@ -56,6 +57,9 @@ TextEditingController fullNameController=TextEditingController();
           }).onError((value,error){
             isLoading=false;
             setState(() {});
+            Get.snackbar('Error','${value.toString()}',
+            backgroundColor: AppColors.primaryColor);
+            print('Error: ' +value.toString());
           });
 
         }),
