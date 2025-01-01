@@ -1,4 +1,5 @@
 import 'package:architecture/Controller/constants/password-field/password-field.dart';
+import 'package:architecture/View/home-view/insert-data/insert-data.dart';
 import 'package:architecture/View/starting-view/splash-view/splashview.dart';
 //import 'package:architecture/container.dart';
 import 'package:architecture/firebase_options.dart';
