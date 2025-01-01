@@ -39,7 +39,8 @@ class _SplashScreenState extends State<SplashScreen> {
              //color: AppColors.primaryColor,
            //),
             AppLoader(),
-            ButtonWidget(text:'Get started', ontap: (){
+            ButtonWidget(text:'Get started', ontap: () async {
+              await FirebaseAuth.instance.currentUser
               Navigator.push(context, MaterialPageRoute(builder: (context)=>SignupView()));
 
             })
