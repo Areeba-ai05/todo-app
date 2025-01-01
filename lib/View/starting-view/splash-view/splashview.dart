@@ -37,8 +37,8 @@ class _SplashScreenState extends State<SplashScreen> {
       Navigator.push(context, MaterialPageRoute(builder: (context)=>SignupView()));
     }
     else{
-      Navigator.push(context, MaterialPageRoute(builder: (context)=>SignupView()));
-    }
+      //Navigator.push(context, MaterialPageRoute(builder: (context)=>SignupView()));
+    //}
     Navigator.push(context, MaterialPageRoute(builder: (context)=>ContainerClass()));
   }
   @override
