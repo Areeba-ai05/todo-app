@@ -6,6 +6,9 @@ import 'package:architecture/Controller/widgets/image-widget.dart';
 //import 'package:architecture/Controller/widgets/normal-text-widget.dart';
 //import 'package:architecture/Controller/widgets/text-form-field.dart';
 import 'package:architecture/Controller/widgets/todo-task%20widget.dart';
+import 'package:architecture/View/auth-view/signupview/signup.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 
 import 'package:flutter/material.dart';
 
@@ -139,14 +142,23 @@ class ContainerClass extends StatelessWidget {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.only(left: 18.0, top: 8.0),
-          child: InkWell(
-            onTap: (){
-              Navigator.pop(context);
-            },
-            child: ImageIcon(AssetImage(AppIcons.backArrowIcon),
-            size:50,
-            ),
+          padding: const EdgeInsets.only(left: 18.0, top: 8.0, right: 18.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              InkWell(
+                onTap: (){
+                  Navigator.pop(context);
+                },
+                child: ImageIcon(AssetImage(AppIcons.backArrowIcon),
+                size:50,
+                ),
+              ),
+              IconButton(onPressed:()async{
+                await FirebaseAuth.instance.signOut();
+                Navigator.pushReplacement(context, CupertinoPageRoute(builder: (context)=>SignupView()));
+              } ,icon:Icon(Icons.logout) ,)
+            ],
           ),
         ),
       ],
