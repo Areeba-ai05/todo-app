@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import '../app-colors/app-colors.dart';
 
     class PasswordField extends StatefulWidget {
-      String hintText2;
+      String hintText;
       TextEditingController controller2;
-       PasswordField({super.key, required this.hintText2, required this.controller2});
+       PasswordField({super.key, required this.hintText, required this.controller2});
 
       @override
       State<PasswordField> createState() => _PasswordFieldState();
@@ -28,7 +28,7 @@ import '../app-colors/app-colors.dart';
             child: TextFormField(
               controller: controller2,
               decoration: InputDecoration(
-                  hintText: hintText2,
+                  hintText: hintText,
                   border: InputBorder.none
               ),
             ),
