@@ -1,3 +1,4 @@
+import 'package:architecture/Controller/constants/password-field/password-field.dart';
 import 'package:architecture/View/starting-view/splash-view/splashview.dart';
 //import 'package:architecture/container.dart';
 import 'package:architecture/firebase_options.dart';
@@ -42,9 +43,9 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home:PasswordField()
+      home://PasswordField()
       //ContainerClass()
-      //SplashScreen()//const MyHomePage(title: 'Flutter Demo Home Page'),
+      SplashScreen()//const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }

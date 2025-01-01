@@ -1,4 +1,5 @@
-import 'package:flutter/material.dart'
+import 'package:architecture/Controller/widgets/text-form-field.dart';
+import 'package:flutter/material.dart';
 
     class PasswordField extends StatefulWidget {
       const PasswordField({super.key});
@@ -8,12 +9,19 @@ import 'package:flutter/material.dart'
     }
     
     class _PasswordFieldState extends State<PasswordField> {
-      TextEditingController confirmpasswordController=TextEditingController();
+      TextEditingController createpasswordController=TextEditingController();
   bool isHide=true;
       @override
       Widget build(BuildContext context) {
         return Scaffold(
-          TextFormFieldWidget(hintText: 'Create a password', controller: createpasswordController),
+         body:  Column(
+            children: [
+              TextFormFieldWidget(
+                //obscureText=isHide,//
+                  hintText: 'Create a password', controller: createpasswordController),
+            ],
+          ),
+
         );
       }
     }
