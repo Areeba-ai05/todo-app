@@ -81,7 +81,17 @@ class ContainerClass extends StatelessWidget {
                             child: Expanded(child:
                             StreamBuilder(
                                 stream: FirebaseFirestore.instance.collection('Test').snapshots(),
-                                builder:
+                                builder:(BuildContext context, AsyncSnapshot<QuerySnapshot>snapshot){
+                                 final data =snapshot.data!.docs;
+                                  return ListView.builder(
+                                  itemCount: data.length
+                                  itemBuilder:(context,index){
+                                    return ListTile(
+                                      title: Text('enterTask'),
+                                    )
+                                 },
+                                  );
+                                  },
                             )),
                           )
                           ],
