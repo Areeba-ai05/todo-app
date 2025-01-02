@@ -3,6 +3,7 @@ import 'package:architecture/Controller/widgets/blacktext-heading-widget.dart';
 import 'package:architecture/Controller/widgets/button-widget.dart';
 import 'package:architecture/Controller/widgets/normal-text-widget.dart';
 import 'package:architecture/Controller/widgets/text-form-field.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class InsertDataScreen extends StatefulWidget {
@@ -15,7 +16,13 @@ class InsertDataScreen extends StatefulWidget {
 class _InsertDataScreenState extends State<InsertDataScreen> {
   TextEditingController taskController = TextEditingController();
   TextEditingController descriptionController = TextEditingController();
-
+  bool isLoading=false;
+  insertData() async{
+    await FirebaseFirestore.instance.collection('Test').add({
+      'enterTask':taskController.text,
+      'taskDescription':descriptionController.text
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,7 +52,7 @@ class _InsertDataScreenState extends State<InsertDataScreen> {
             ButtonWidget(
               text: 'Save Data',
               ontap: () {
-                // This is just the UI screen; backend logic can be implemented here.
+                insertData();// This is just the UI screen; backend logic can be implemented here.
               },
             ),
           ],
