@@ -8,6 +8,7 @@ import 'package:architecture/Controller/widgets/image-widget.dart';
 import 'package:architecture/Controller/widgets/todo-task%20widget.dart';
 import 'package:architecture/View/auth-view/signupview/signup.dart';
 import 'package:architecture/View/home-view/insert-data/insert-data.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -77,39 +78,39 @@ class ContainerClass extends StatelessWidget {
                           children: [
                             TodoTaskWidget(text: 'Daily Tasks'),
                           Container(
-                            height: 34,
-                            width: 31,
-                            child: ImageIcon(AssetImage(AppIcons.addIcon),
-                            size: 50,),
-                          ),
+                            child: Expanded(child:
+                            StreamBuilder(
+                                stream: FirebaseFirestore.instance.collection('Test').snapshots(),
+                                builder:
+                            )),
+                          )
                           ],
                         ),
                       ),
-                      SizedBox(height: 20,),
-                       Row(
-                          children: [
-                            Container(
-                              height:17,
-                              width: 17,
-                              child: ImageIcon(AssetImage(AppIcons.recIcon),
-                                size: 50,),
-                            ),
-                            BlackTextHeading(text: 'Follow islamic on Twitter.')
-                          ],
-                        ),
-
-                      SizedBox(height: 20,),
-                      Row(
-                        children: [
-                          Container(
-                            height:17,
-                            width: 17,
-                            child: ImageIcon(AssetImage(AppIcons.rectangleIcon),
-                              size: 50,),
-                          ),
-                          BlackTextHeading(text: 'Learn Figma by 4pm.')
-                        ],
-                      ),
+                      //SizedBox(height: 20,),
+                       //Row(
+                         // children: [
+                           // Container(
+                             // height:17,
+                              //width: 17,
+                              //child: ImageIcon(AssetImage(AppIcons.recIcon),
+                                //size: 50,),
+                            //),
+                            //BlackTextHeading(text: 'Follow islamic on Twitter.')
+                          //],
+                        //),
+                      //SizedBox(height: 20,),
+                      //Row(
+                        //children: [
+                          //Container(
+                            //height:17,
+                            //width: 17,
+                            //child: ImageIcon(AssetImage(AppIcons.rectangleIcon),
+                              //size: 50,),
+                          //),
+                          //BlackTextHeading(text: 'Learn Figma by 4pm.')
+                        //],
+                      //),
 
                     ],
                   ),

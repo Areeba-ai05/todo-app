@@ -25,9 +25,11 @@ class _InsertDataScreenState extends State<InsertDataScreen> {
       setState(() {
 
       });
-      await FirebaseFirestore.instance.collection('Test').add({
+      String docid=DateTime.now().microsecond.toString();
+      await FirebaseFirestore.instance.collection('Test').doc(docid).set({
         'enterTask':taskController.text,
-        'taskDescription':descriptionController.text
+        'taskDescription':descriptionController.text,
+        'docid':docid
       });
       isLoading=false;
       setState(() {
