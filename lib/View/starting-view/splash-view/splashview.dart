@@ -32,14 +32,17 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   islogedin() async {
-    User? check=await FirebaseAuth.instance.currentUser;
-    if(check==null){
-      Navigator.push(context, MaterialPageRoute(builder: (context)=>SignupView()));
+    User? check = await FirebaseAuth.instance.currentUser;
+    if (check == null) {
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => SignupView()));
     }
-    else{
+    else {
       //Navigator.push(context, MaterialPageRoute(builder: (context)=>SignupView()));
-    //}
-    Navigator.push(context, MaterialPageRoute(builder: (context)=>ContainerClass()));
+      //}
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => ContainerClass()));
+    }
   }
   @override
   Widget build(BuildContext context) {
@@ -72,9 +75,4 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 }
 
-  @override
-  Widget build(BuildContext context) {
-    // TODO: implement build
-    throw UnimplementedError();
-  }
-}
+

@@ -15,7 +15,6 @@ import '../app-colors/app-colors.dart';
     class _PasswordFieldState extends State<PasswordField> {
 
       bool isHide=true;
-      
       @override
       Widget build(BuildContext context) {
         return Padding(
@@ -26,13 +25,23 @@ import '../app-colors/app-colors.dart';
               borderRadius: BorderRadius.circular(11),
             ),
             child: TextFormField(
-              controller: controller2,
+              obscureText: isHide,
+              controller: widget.controller2,
               decoration: InputDecoration(
-                  hintText: hintText,
-                  border: InputBorder.none
+                  hintText: widget.hintText,
+                  border: InputBorder.none,
+            suffixIcon: IconButton(
+        icon: Icon(
+        isHide ? Icons.visibility : Icons.visibility_off,
+        ),
+        onPressed: () {
+        setState(() {
+        isHide = !isHide;
+        });
+        }
               ),
             ),
           ),
-        );
+        ),);
       }
     }

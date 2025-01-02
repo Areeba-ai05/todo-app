@@ -1,6 +1,7 @@
 import 'package:architecture/Controller/constants/app-colors/app-colors.dart';
 import 'package:architecture/Controller/constants/app-images/app-images.dart';
 import 'package:architecture/Controller/constants/apploader/app-loader.dart';
+import 'package:architecture/Controller/constants/password-field/password-field.dart';
 import 'package:architecture/Controller/widgets/blacktext-heading-widget.dart';
 import 'package:architecture/Controller/widgets/button-widget.dart';
 import 'package:architecture/Controller/widgets/image-widget.dart';
@@ -35,8 +36,8 @@ class _SignInViewState extends State<SignInView> {
             ImageWidget(image: AppImages.signinImg),
             SizedBox(height: 30,),
             TextFormFieldWidget(hintText:'Enter your email Address', controller: emailAddressController),
-            TextFormFieldWidget(hintText: ' Confirm password', controller: confirmpasswordController,
-            ),
+            PasswordField(hintText: 'Create a password', controller2: confirmpasswordController),
+            //TextFormFieldWidget(hintText: ' Confirm password', controller: confirmpasswordController,
             SizedBox(height: 20,),
             NormalTextWidget(text: 'Forgot password?', textColor: AppColors.primaryColor),
             SizedBox(height: 20,),

@@ -1,6 +1,7 @@
 import 'package:architecture/Controller/constants/app-colors/app-colors.dart';
 import 'package:architecture/Controller/constants/app-images/app-images.dart';
 import 'package:architecture/Controller/constants/apploader/app-loader.dart';
+import 'package:architecture/Controller/constants/password-field/password-field.dart';
 import 'package:architecture/Controller/widgets/blacktext-heading-widget.dart';
 import 'package:architecture/Controller/widgets/button-widget.dart';
 import 'package:architecture/Controller/widgets/image-widget.dart';
@@ -40,8 +41,10 @@ TextEditingController fullNameController=TextEditingController();
         NormalTextWidget(text: 'Lets help you meet up your task',textColor: AppColors.primaryColor,),
         TextFormFieldWidget(hintText: 'Enter your Full Name', controller: fullNameController),
         TextFormFieldWidget(hintText: 'Enter your Email Address', controller: emailAddressController),
-        TextFormFieldWidget(hintText: 'Create a password', controller: createpasswordController),
-        TextFormFieldWidget(hintText: ' Confirm password', controller: confirmpasswordController),
+        PasswordField(hintText: 'Create a password', controller2: createpasswordController),
+        PasswordField(hintText: 'Confirm password', controller2: confirmpasswordController),
+        //TextFormFieldWidget(hintText: 'Create a password', controller: createpasswordController),
+        //TextFormFieldWidget(hintText: ' Confirm password', controller: confirmpasswordController),
         SizedBox(height: 10,),
         isLoading?AppLoader(): ButtonWidget(text: 'Sign Up', ontap: ()async{
           isLoading =true;

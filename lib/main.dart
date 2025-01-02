@@ -1,4 +1,5 @@
 import 'package:architecture/Controller/constants/password-field/password-field.dart';
+import 'package:architecture/View/auth-view/signupview/signup.dart';
 import 'package:architecture/View/home-view/insert-data/insert-data.dart';
 import 'package:architecture/View/starting-view/splash-view/splashview.dart';
 //import 'package:architecture/container.dart';
@@ -44,7 +45,8 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home:InsertDataScreen()//PasswordField()
+      home://InsertDataScreen()
+      SignupView()
       //ContainerClass()
       //SplashScreen()//const MyHomePage(title: 'Flutter Demo Home Page'),
     );
