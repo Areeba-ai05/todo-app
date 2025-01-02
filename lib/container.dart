@@ -7,6 +7,7 @@ import 'package:architecture/Controller/widgets/image-widget.dart';
 //import 'package:architecture/Controller/widgets/text-form-field.dart';
 import 'package:architecture/Controller/widgets/todo-task%20widget.dart';
 import 'package:architecture/View/auth-view/signupview/signup.dart';
+import 'package:architecture/View/home-view/insert-data/insert-data.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -18,6 +19,9 @@ class ContainerClass extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(onPressed: (){
+        Navigator.push(context, CupertinoDialogRoute(builder: (context)=>InsertDataScreen(), context:context));
+      },backgroundColor: AppColors.primaryColor,child: Icon(Icons.add,color:AppColors.whiteColor),),
       body:
           SingleChildScrollView(
      child:Stack(children: [

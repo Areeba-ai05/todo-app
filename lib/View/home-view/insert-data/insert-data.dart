@@ -1,4 +1,5 @@
 import 'package:architecture/Controller/constants/app-colors/app-colors.dart';
+import 'package:architecture/Controller/constants/apploader/app-loader.dart';
 import 'package:architecture/Controller/widgets/blacktext-heading-widget.dart';
 import 'package:architecture/Controller/widgets/button-widget.dart';
 import 'package:architecture/Controller/widgets/normal-text-widget.dart';
@@ -18,10 +19,20 @@ class _InsertDataScreenState extends State<InsertDataScreen> {
   TextEditingController descriptionController = TextEditingController();
   bool isLoading=false;
   insertData() async{
-    await FirebaseFirestore.instance.collection('Test').add({
-      'enterTask':taskController.text,
-      'taskDescription':descriptionController.text
-    });
+    try{
+      isLoading=true;
+      setState(() {
+
+      });
+      await FirebaseFirestore.instance.collection('Test').add({
+        'enterTask':taskController.text,
+        'taskDescription':descriptionController.text
+      });
+    }
+    catch(e){
+
+    }
+
   }
   @override
   Widget build(BuildContext context) {
@@ -49,7 +60,7 @@ class _InsertDataScreenState extends State<InsertDataScreen> {
               controller: descriptionController,
             ),
             const SizedBox(height: 30),
-            ButtonWidget(
+            isLoading==true?AppLoader():ButtonWidget(
               text: 'Save Data',
               ontap: () {
                 insertData();// This is just the UI screen; backend logic can be implemented here.
