@@ -6,6 +6,7 @@ import 'package:architecture/Controller/widgets/normal-text-widget.dart';
 import 'package:architecture/Controller/widgets/text-form-field.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class InsertDataScreen extends StatefulWidget {
   const InsertDataScreen({super.key});
@@ -28,9 +29,18 @@ class _InsertDataScreenState extends State<InsertDataScreen> {
         'enterTask':taskController.text,
         'taskDescription':descriptionController.text
       });
+      isLoading=false;
+      setState(() {
+
+      });
+      Navigator.pop(context);
     }
     catch(e){
+     isLoading=false;
+     setState(() {
 
+     });
+     Get.snackbar('Error','${e.toString()}');
     }
 
   }
