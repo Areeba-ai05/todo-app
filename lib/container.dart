@@ -218,7 +218,7 @@ class ContainerClass extends StatelessWidget {
                         return Card(
                           child: ListTile(
                             onTap:(){
-                              Navigator.push(context, CupertinoDialogRoute(builder: (context)=>UpdateDataScreen(), context: context));
+                              Navigator.push(context, CupertinoDialogRoute(builder: (context)=>UpdateDataScreen(docid: data[index]['docid'],), context: context));
                             },
                             onLongPress: ()async{
                              await FirebaseFirestore.instance.collection('Test').doc(data[index]['docid']).delete();

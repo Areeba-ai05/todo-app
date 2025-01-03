@@ -9,8 +9,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class UpdateDataScreen extends StatefulWidget {
-  String
-  const UpdateDataScreen({super.key});
+  String docid;
+   UpdateDataScreen({super.key, required this.docid});
 
   @override
   State<UpdateDataScreen> createState() => _UpdateDataScreenState();
@@ -20,7 +20,16 @@ class _UpdateDataScreenState extends State<UpdateDataScreen> {
   TextEditingController taskController = TextEditingController();
   TextEditingController descriptionController = TextEditingController();
   bool isLoading=false;
-
+  updateData() async{
+    try{
+      await FirebaseFirestore.instance.collection('Test').doc(widget.docid).update({
+        'enterTask':taskController.text,
+        'taskDescription':descriptionController.text,
+      });
+      Navigator.pop(context);
+    }
+    catch (e) {}
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
