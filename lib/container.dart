@@ -140,6 +140,7 @@ import 'package:architecture/Controller/widgets/image-widget.dart';
 import 'package:architecture/Controller/widgets/todo-task%20widget.dart';
 import 'package:architecture/View/auth-view/signupview/signup.dart';
 import 'package:architecture/View/home-view/insert-data/insert-data.dart';
+import 'package:architecture/View/home-view/update-data/update-data.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
@@ -214,9 +215,17 @@ class ContainerClass extends StatelessWidget {
                     return ListView.builder(
                       itemCount: data.length,
                       itemBuilder: (context, index) {
-                        return ListTile(
-                          title: Text(data[index]['enterTask']),
-                          subtitle: Text(data[index]['taskDescription']),
+                        return Card(
+                          child: ListTile(
+                            onTap:(){
+                              Navigator.push(context, CupertinoDialogRoute(builder: (context)=>UpdateDataScreen(), context: context));
+                            },
+                            onLongPress: ()async{
+                             await FirebaseFirestore.instance.collection('Test').doc(data[index]['docid']).delete();
+                            },
+                            title: Text(data[index]['enterTask']),
+                            subtitle: Text(data[index]['taskDescription']),
+                          ),
                         );
                       },
                     );
