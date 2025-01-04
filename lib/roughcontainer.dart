@@ -1,8 +1,11 @@
+
+
 import 'package:architecture/Controller/constants/app-colors/app-colors.dart';
 import 'package:architecture/Controller/constants/app-icons/app-icons.dart';
 import 'package:architecture/Controller/constants/app-images/app-images.dart';
 import 'package:architecture/Controller/widgets/blacktext-heading-widget.dart';
 import 'package:architecture/Controller/widgets/image-widget.dart';
+import 'package:architecture/Controller/widgets/todo-task%20widget.dart';
 import 'package:architecture/View/auth-view/signupview/signup.dart';
 import 'package:architecture/View/home-view/insert-data/insert-data.dart';
 import 'package:architecture/View/home-view/update-data/update-data.dart';
@@ -21,10 +24,7 @@ class ContainerClass extends StatelessWidget {
         onPressed: () {
           Navigator.push(
             context,
-            CupertinoDialogRoute(
-              builder: (context) => InsertDataScreen(),
-              context: context,
-            ),
+            CupertinoDialogRoute(builder: (context) => InsertDataScreen(), context: context),
           );
         },
         backgroundColor: AppColors.primaryColor,
@@ -63,59 +63,44 @@ class ContainerClass extends StatelessWidget {
                 ],
               ),
               SizedBox(height: 20),
-              Expanded(
-                child: StreamBuilder(
-                  stream: FirebaseFirestore.instance
-                      .collection(FirebaseAuth.instance.currentUser!.uid)
-                      .snapshots(),
-                  builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
-                    if (snapshot.connectionState == ConnectionState.waiting) {
-                      return Center(child: CircularProgressIndicator());
-                    }
-                    if (snapshot.hasError) {
-                      return Center(child: Text('Error: ${snapshot.error}'));
-                    }
-                    final data = snapshot.data!.docs;
-                    return ListView.builder(
-                      itemCount: data.length,
-                      itemBuilder: (context, index) {
-                        return Card(
-                          child: ListTile(
-                            title: Text(data[index]['enterTask']),
-                            subtitle: Text(data[index]['taskDescription']),
-                            trailing: Row(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                IconButton(
-                                  icon: Icon(Icons.edit, color: Colors.blue),
-                                  onPressed: () {
-                                    Navigator.push(
-                                      context,
-                                      CupertinoDialogRoute(
-                                        builder: (context) => UpdateDataScreen(
-                                          docid: data[index]['docid'],
-                                        ),
-                                        context: context,
-                                      ),
-                                    );
-                                  },
-                                ),
-                                IconButton(
-                                  icon: Icon(Icons.delete, color: Colors.red),
-                                  onPressed: () async {
-                                    await FirebaseFirestore.instance
-                                        .collection(FirebaseAuth.instance.currentUser!.uid)
-                                        .doc(data[index]['docid'])
-                                        .delete();
-                                  },
-                                ),
-                              ],
+              Container(
+                //height: 240, // Set a fixed height for the task list
+                //width: 339,
+                //decoration: BoxDecoration(
+                //borderRadius: BorderRadius.circular(30),
+                //color: AppColors.whiteColor,
+                //),
+                child: Expanded(
+                  child: StreamBuilder(
+                    stream: FirebaseFirestore.instance.collection(FirebaseAuth.instance.currentUser!.uid).snapshots(),
+                    builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+                      if (snapshot.connectionState == ConnectionState.waiting) {
+                        return Center(child: CircularProgressIndicator());
+                      }
+                      if (snapshot.hasError) {
+                        return Center(child: Text('Error: ${snapshot.error}'));
+                      }
+                      final data = snapshot.data!.docs;
+                      return ListView.builder(
+                        itemCount: data.length,
+                        itemBuilder: (context, index) {
+                          return Card(
+                            child: ListTile(
+                              onTap:(){
+                                Navigator.push(context, CupertinoDialogRoute(builder: (context)=>UpdateDataScreen(docid: data[index]['docid'],), context: context));
+                              },
+                              onLongPress: ()async{
+                                await FirebaseFirestore.instance.collection(FirebaseAuth.instance.currentUser!.uid).doc(data[index]['docid']).delete();
+                              },
+                              title: Text(data[index]['enterTask']),
+                              subtitle: Text(data[index]['taskDescription']),
                             ),
-                          ),
-                        );
-                      },
-                    );
-                  },
+
+                          );
+                        },
+                      );
+                    },
+                  ),
                 ),
               ),
             ],
