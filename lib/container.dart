@@ -225,6 +225,12 @@ class ContainerClass extends StatelessWidget {
                             },
                             title: Text(data[index]['enterTask']),
                             subtitle: Text(data[index]['taskDescription']),
+                            trailing: Column(
+                              children: [
+                                IconButton(onPressed: (){}, icon: Icon(Icons.edit)),
+                                IconButton(onPressed: (){}, icon: Icon(Icons.delete))
+                              ],
+                            ),
                           ),
                         );
                       },
