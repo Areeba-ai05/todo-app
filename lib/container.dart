@@ -203,7 +203,7 @@ class ContainerClass extends StatelessWidget {
                   color: AppColors.whiteColor,
                 ),
                 child: StreamBuilder(
-                  stream: FirebaseFirestore.instance.collection('Test').snapshots(),
+                  stream: FirebaseFirestore.instance.collection(FirebaseAuth.instance.currentUser!.uid).snapshots(),
                   builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
                     if (snapshot.connectionState == ConnectionState.waiting) {
                       return Center(child: CircularProgressIndicator());
@@ -221,7 +221,7 @@ class ContainerClass extends StatelessWidget {
                               Navigator.push(context, CupertinoDialogRoute(builder: (context)=>UpdateDataScreen(docid: data[index]['docid'],), context: context));
                             },
                             onLongPress: ()async{
-                             await FirebaseFirestore.instance.collection('Test').doc(data[index]['docid']).delete();
+                             await FirebaseFirestore.instance.collection(FirebaseAuth.instance.currentUser!.uid).doc(data[index]['docid']).delete();
                             },
                             title: Text(data[index]['enterTask']),
                             subtitle: Text(data[index]['taskDescription']),

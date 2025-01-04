@@ -5,6 +5,7 @@ import 'package:architecture/Controller/widgets/button-widget.dart';
 import 'package:architecture/Controller/widgets/normal-text-widget.dart';
 import 'package:architecture/Controller/widgets/text-form-field.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -25,11 +26,15 @@ class _InsertDataScreenState extends State<InsertDataScreen> {
       setState(() {
 
       });
-      String docid=DateTime.now().microsecond.toString();
-      await FirebaseFirestore.instance.collection('Test').doc(docid).set({
+      User? user=await FirebaseAuth.instance.currentUser;
+      String userId=user!.uid;
+
+      String docid=DateTime.now().millisecondsSinceEpoch.toString();
+      await FirebaseFirestore.instance.collection(userId).doc(docid).set({
         'enterTask':taskController.text,
         'taskDescription':descriptionController.text,
-        'docid':docid
+        'docid':docid,
+        'userid':userId,
       });
       isLoading=false;
       setState(() {

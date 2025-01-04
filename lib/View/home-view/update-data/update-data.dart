@@ -5,6 +5,7 @@ import 'package:architecture/Controller/widgets/button-widget.dart';
 import 'package:architecture/Controller/widgets/normal-text-widget.dart';
 import 'package:architecture/Controller/widgets/text-form-field.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -22,7 +23,7 @@ class _UpdateDataScreenState extends State<UpdateDataScreen> {
   bool isLoading=false;
   updateData() async{
     try{
-      await FirebaseFirestore.instance.collection('Test').doc(widget.docid).update({
+      await FirebaseFirestore.instance.collection(FirebaseAuth.instance.currentUser!.uid).doc(widget.docid).update({
         'enterTask':taskController.text,
         'taskDescription':descriptionController.text,
       });
@@ -59,6 +60,7 @@ class _UpdateDataScreenState extends State<UpdateDataScreen> {
             isLoading==true?AppLoader():ButtonWidget(
               text: 'Save Data',
               ontap: () {
+                updateData();
                 //insertData();// This is just the UI screen; backend logic can be implemented here.
               },
             ),

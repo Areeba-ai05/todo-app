@@ -48,8 +48,8 @@ class MyApp extends StatelessWidget {
       ),
       home://InsertDataScreen()
       //SignupView()
-      ContainerClass()
-      //SplashScreen()//const MyHomePage(title: 'Flutter Demo Home Page'),
+      //ContainerClass()
+      SplashScreen()//const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
