@@ -29,45 +29,72 @@ class _SignInViewState extends State<SignInView> {
   Widget build(BuildContext context) {
     return Scaffold(
       body:Center(
-        child:Column(
-          children:[
-           BlackTextHeading(text: 'Welcome Back!'),
-            SizedBox(height:50,),
-            ImageWidget(image: AppImages.signinImg),
-            SizedBox(height: 30,),
-            TextFormFieldWidget(hintText:'Enter your email Address', controller: emailAddressController),
-            PasswordField(hintText: 'Create a password', controller2: confirmpasswordController),
-            //TextFormFieldWidget(hintText: ' Confirm password', controller: confirmpasswordController,
-            SizedBox(height: 20,),
-            NormalTextWidget(text: 'Forgot password?', textColor: AppColors.primaryColor),
-            SizedBox(height: 20,),
-            isLoading?AppLoader(): ButtonWidget(text: 'Sign In', ontap: ()async{
-              isLoading=true;
-              setState(() {
+        child:
+         Stack(
+           children: [
+             Column(
+              children:[
+               BlackTextHeading(text: 'Welcome Back!'),
+                SizedBox(height:50,),
+                ImageWidget(image: AppImages.signinImg),
+                SizedBox(height: 30,),
+                TextFormFieldWidget(hintText:'Enter your email Address', controller: emailAddressController),
+                PasswordField(hintText: 'Create a password', controller2: confirmpasswordController),
+                //TextFormFieldWidget(hintText: ' Confirm password', controller: confirmpasswordController,
+                SizedBox(height: 20,),
+                NormalTextWidget(text: 'Forgot password?', textColor: AppColors.primaryColor),
+                SizedBox(height: 20,),
+                isLoading?AppLoader(): ButtonWidget(text: 'Sign In', ontap: ()async{
+                  isLoading=true;
+                  setState(() {
 
-              });
-              await FirebaseAuth.instance.signInWithEmailAndPassword(email: emailAddressController.text.trim(),
-                  password: confirmpasswordController.text).then((onValue){
-                    Navigator.pushReplacement(context, CupertinoPageRoute(builder: (context)=>ContainerClass()));
-              }).onError((handleError,value){});
-            }),
-            SizedBox(height: 10,),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                NormalTextWidget(text: 'Dont have an account?', textColor:AppColors.blackColor),
-                SizedBox(width: 5,),
-                InkWell(
-                    onTap: (){
-                      Get.to(()=>SignupView());
-                      //Navigator.push(context, MaterialPageRoute(builder: (context)=>SignupView()));
-                    },
-                    child: NormalTextWidget(text: 'Sign Up', textColor:AppColors.primaryColor)),
-              ],
-            )
+                  });
+                  await FirebaseAuth.instance.signInWithEmailAndPassword(email: emailAddressController.text.trim(),
+                      password: confirmpasswordController.text).then((onValue){
+                        Navigator.pushReplacement(context, CupertinoPageRoute(builder: (context)=>ContainerClass()));
+                  }).onError((handleError,value){});
+                }),
+                SizedBox(height: 10,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    NormalTextWidget(text: 'Dont have an account?', textColor:AppColors.blackColor),
+                    SizedBox(width: 5,),
+                    InkWell(
+                        onTap: (){
+                          Get.to(()=>SignupView());
+                          //Navigator.push(context, MaterialPageRoute(builder: (context)=>SignupView()));
+                        },
+                        child: NormalTextWidget(text: 'Sign Up', textColor:AppColors.primaryColor)),
+                  ],
+                )
 
-          ]
-        )
+              ]
+                     ),
+             Container(
+               height: 100,
+               width: 200,
+               decoration: BoxDecoration(
+                 color: Colors.teal.withOpacity(0.5),
+                 borderRadius: BorderRadius.only(
+                   bottomLeft: Radius.circular(200),
+                   bottomRight: Radius.circular(200),
+                 ),
+               ),
+             ),
+             Container(
+               height: 200,
+               width: 100,
+               decoration: BoxDecoration(
+                 color: Colors.teal.withOpacity(0.5),
+                 borderRadius: BorderRadius.only(
+                   topRight: Radius.circular(200),
+                   bottomRight: Radius.circular(200),
+                 ),
+               ),
+             ),
+           ],
+         )
       )
     );
   }
